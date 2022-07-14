@@ -1,8 +1,16 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 // import Image from "next/image";
 
 export default function NavBar() {
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    async () => {
+      const { results } = await (await fetch("/api/movies")).json();
+      setMovies(results);
+    };
+  }, []);
   const router = useRouter();
   return (
     <nav>
