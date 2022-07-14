@@ -1,16 +1,24 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+// import Image from "next/image";
 
 export default function NavBar() {
   const router = useRouter();
   return (
     <nav>
-      <Link href="/">
-        <a style={{ color: router.pathname === "/" ? "red" : "blue" }}>Home</a>
-      </Link>
-      <Link href="/about">
-        <a style={{ color: router.pathname === "/" ? "blue" : "red" }}>About</a>
-      </Link>
+      <img src="/vercel.svg" />
+      <div>
+        <Link href="/">
+          <a style={{ color: router.pathname === "/" ? "red" : "blue" }}>
+            Home
+          </a>
+        </Link>
+        <Link href="/about">
+          <a style={{ color: router.pathname === "/" ? "blue" : "red" }}>
+            About
+          </a>
+        </Link>
+      </div>
     </nav>
   );
 }
